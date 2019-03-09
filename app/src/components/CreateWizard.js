@@ -45,6 +45,14 @@ class CreateWizard extends Component {
           mutation={CREATE_WIZARD}
           variables={{ name, image }}
           onCompleted={() => this.props.history.push("/")}
+          update={(store, { data: { createWizard } }) => {
+            const data = store.readQuery({ query: WIZARD_QUERY });
+            data.Wizards.push(createWizard);
+            store.writeQuery({
+              query: WIZARD_QUERY,
+              data
+            });
+          }}
         >
           {(createWizard, { data, loading, error }) => (
             <button onClick={createWizard}>submit</button>
