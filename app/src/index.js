@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient, ApolloLink } from "apollo-boost";
 import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { onError } from "apollo-link-error";
+import CreateWizard from "./components/CreateWizard";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000"
@@ -23,7 +25,13 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <Router>
+      <Switch>
+        <Route path="/" exact component={App} />
+        <Route path="/create-wizard" exact component={CreateWizard} />
+        {/* <Route path="/update-wizard" component={UpdateWizard} /> */}
+      </Switch>
+    </Router>
   </ApolloProvider>,
   document.getElementById("root")
 );
