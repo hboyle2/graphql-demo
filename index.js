@@ -23,15 +23,40 @@ const typeDefs = `
     core: String
     length: Int
   }
+  type Mutation {
+    createWizard(name: String,  image: String ): Characters!
+    updateWizard(id: Int, name: String, image: String): Characters!
+  }
+
 
 
 `;
 
-// 2
+let idCount = list.length + 1;
 const resolvers = {
   Query: {
     Wizards: () => {
       return list;
+    }
+  },
+  Mutation: {
+    createWizard: (parent, args) => {
+      const link = {
+        id: idCount++,
+        name: args.name,
+        image: args.image
+      };
+      list.push(link);
+      return link;
+    },
+    updateWizard: (parent, args) => {
+      list.map(character => {
+        if (character.id == args.id) {
+          character.name = args.name;
+          character.image = args.image;
+        }
+      });
+      return args;
     }
   }
 };
