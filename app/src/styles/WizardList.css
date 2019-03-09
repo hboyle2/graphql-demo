@@ -1,0 +1,38 @@
+.characters {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 25px;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
+
+.character {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+}
+
+@font-face {
+  font-family: "Harry Potter";
+  src: url("Harry\ Potter.TTF");
+}
+
+h2 {
+  font-family: "Harry Potter";
+  font-size: 60px;
+  color: #d4af37;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
