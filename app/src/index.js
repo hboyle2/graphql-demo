@@ -10,6 +10,7 @@ import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { onError } from "apollo-link-error";
 import CreateWizard from "./components/CreateWizard";
+import UpdateWizard from "./components/UpdateWizard";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000"
@@ -29,7 +30,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={App} />
         <Route path="/create-wizard" exact component={CreateWizard} />
-        {/* <Route path="/update-wizard" component={UpdateWizard} /> */}
+        <Route path="/update-wizard" component={UpdateWizard} />
       </Switch>
     </Router>
   </ApolloProvider>,
