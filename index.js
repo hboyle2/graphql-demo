@@ -1,16 +1,37 @@
 const { GraphQLServer } = require("graphql-yoga");
+const WizardList = require("./WizardList");
+
+let list = WizardList.WizardList;
 
 const typeDefs = `
-type Query {
-  Wizards: String!
-}
+  type Query {
+    Wizards:[Characters!]
+  }
+
+  type Characters {
+   id: String
+   name: String
+   house : String
+   wand : Wand
+   ancestry: String
+   image: String
+   species: String
+  }
+
+  type Wand {
+    wood: String
+    core: String
+    length: Int
+  }
+
+
 `;
 
 // 2
 const resolvers = {
   Query: {
     Wizards: () => {
-      return "Wizard List!";
+      return list;
     }
   }
 };
