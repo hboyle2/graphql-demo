@@ -15,7 +15,7 @@ export const WIZARD_QUERY = gql`
   }
 `;
 
-class WizardList extends Component {
+class App extends Component {
   render() {
     return (
       <div className="wrapper">
@@ -42,4 +42,4 @@ class WizardList extends Component {
   }
 }
 
-export default WizardList;
+export default App;
