@@ -24,7 +24,6 @@ class CreateWizard extends Component {
 
     return (
       <div>
-        <Link to="/">Home</Link>
         <h1> Create a Wizard</h1>
         <div className="flex flex-column mt3">
           <input
