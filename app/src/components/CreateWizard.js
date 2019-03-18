@@ -37,7 +37,11 @@ class CreateWizard extends Component {
             placeholder="The URL for the link"
           />
         </div>
-        <Mutation mutation={CREATE_WIZARD} variables={{ name, image }}>
+        <Mutation
+          mutation={CREATE_WIZARD}
+          variables={{ name, image }}
+          onCompleted={() => this.props.history.push("/")}
+        >
           {(createWizard, { data, loading, error }) => (
             <button onClick={createWizard}>submit</button>
           )}

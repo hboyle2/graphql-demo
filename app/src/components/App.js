@@ -3,8 +3,8 @@ import Wizard from "./Wizard";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import "../styles/WizardList.css";
-import CreateWizard from "./CreateWizard";
-import UpdateWizard from "./UpdateWizard";
+import { Link } from "react-router-dom";
+
 export const WIZARD_QUERY = gql`
   {
     Wizards {
@@ -21,7 +21,8 @@ class WizardList extends Component {
     return (
       <div className="wrapper">
         <h2>Harry Potter and the Graphql Tutorial</h2>
-        <UpdateWizard />
+        <Link to="/create-wizard">Create Wizard</Link>
+        <Link to="/update-wizard">Update Wizard</Link>
         <Query query={WIZARD_QUERY}>
           {({ loading, error, data }) => {
             if (loading) return <div>Fetching</div>;
@@ -38,7 +39,6 @@ class WizardList extends Component {
             );
           }}
         </Query>
-        <CreateWizard />
       </div>
     );
   }
