@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import "../styles/WizardList.css";
 import CreateWizard from "./CreateWizard";
-
+import UpdateWizard from "./UpdateWizard";
 export const WIZARD_QUERY = gql`
   {
     Wizards {
@@ -21,7 +21,7 @@ class WizardList extends Component {
     return (
       <div className="wrapper">
         <h2>Harry Potter and the Graphql Tutorial</h2>
-
+        <UpdateWizard />
         <Query query={WIZARD_QUERY}>
           {({ loading, error, data }) => {
             if (loading) return <div>Fetching</div>;
